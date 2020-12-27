@@ -13,9 +13,10 @@
 </head>
 <body>
 	<div id="app">
-		<h1>{{ title }}</h1>
-		<h2>{{ count }}</h2>
+		<h1>{{ $store.state.title }}</h1>
+		<h2>{{ $store.state.count }}</h2>
 		<p>State Management Pattern</p>
+		<button @click="increment">Hitung</button>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -43,7 +44,12 @@
 				// count: 1
 			},
 			// store: storecontainer
-			store
+			store,
+			methods: {
+				increment() {
+					this.$store.state.count++
+				}
+			}
 		})
 	</script>
 </body>
